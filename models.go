@@ -254,6 +254,18 @@ type ProcessResponse struct {
 	Score          int           `json:"score"`
 }
 
+// CallbackTransactionRequest represents a callback transaction request.
+type CallbackTransactionRequest struct {
+	Message   string `json:"message"`
+	PaymentID string `json:"payment_id"`
+	Status    string `json:"status"`
+}
+
+// CallbackTransactionResponse represents the result of a callback transaction.
+type CallbackTransactionResponse struct {
+	Message string `json:"message"`
+}
+
 // ErrorResponse represents an API error.
 type ErrorResponse struct {
 	Error string `json:"error"`

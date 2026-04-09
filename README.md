@@ -226,6 +226,40 @@ if err != nil {
 }
 ```
 
+## Callback
+
+Send a callback transaction using `client.Callback.Transaction()`.
+
+```go
+resp, err := client.Callback.Transaction(ctx, &aurora.CallbackTransactionRequest{
+    Message:   "Payment completed",
+    PaymentID: "pay_1234567890",
+    Status:    "success",
+})
+if err != nil {
+    log.Fatal(err)
+}
+
+fmt.Printf("Success: %v | Message: %s\n", resp.Success, resp.Message)
+```
+
+### Request
+
+| Field | JSON Key | Description |
+|---|---|---|
+| `Message` | `message` | Callback message |
+| `PaymentID` | `payment_id` | Payment identifier |
+| `Status` | `status` | Transaction status |
+
+### Response
+
+```go
+type CallbackTransactionResponse struct {
+    Success bool   // operation succeeded
+    Message string // response message
+}
+```
+
 ## License
 
 MIT

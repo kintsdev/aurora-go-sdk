@@ -23,7 +23,8 @@ type Client struct {
 	apiKey     string
 	httpClient *http.Client
 
-	Process *ProcessService
+	Callback *CallbackService
+	Process  *ProcessService
 }
 
 // Option is a functional option for configuring the Client.
@@ -63,6 +64,7 @@ func NewClient(apiKey string, opts ...Option) *Client {
 		opt(c)
 	}
 
+	c.Callback = &CallbackService{client: c}
 	c.Process = &ProcessService{client: c}
 
 	return c
