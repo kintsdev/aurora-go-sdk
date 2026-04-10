@@ -134,6 +134,9 @@ type Transfer struct {
 	ReceiverName             string `json:"receiver_name,omitempty"`
 	ReceiverSurname          string `json:"receiver_surname,omitempty"`
 	ReceiverWalletID         string `json:"receiver_wallet_id,omitempty"`
+	ReceiverIdentityNumber   string `json:"receiver_identity_number,omitempty" example:"987654321"`
+	ReceiverPhone            string `json:"receiver_phone,omitempty" example:"+0987654321"`
+	ReceiverEmail            string `json:"receiver_email,omitempty" example:"john@doe.com"`
 	Relationship             string `json:"relationship,omitempty"`
 	SenderAddress            string `json:"sender_address,omitempty"`
 	SenderCountry            string `json:"sender_country,omitempty"`
@@ -142,6 +145,9 @@ type Transfer struct {
 	SenderName               string `json:"sender_name,omitempty"`
 	SenderSurname            string `json:"sender_surname,omitempty"`
 	SenderWalletID           string `json:"sender_wallet_id,omitempty"`
+	SenderIdentityNumber     string `json:"sender_identity_number,omitempty" example:"123456789"`
+	SenderPhone              string `json:"sender_phone,omitempty" example:"+1234567890"`
+	SenderEmail              string `json:"sender_email,omitempty" example:"john@doe.com"`
 	SourceOfFunds            string `json:"source_of_funds,omitempty"`
 	TargetCurrency           string `json:"target_currency,omitempty"`
 	TransferPurpose          string `json:"transfer_purpose,omitempty"`
