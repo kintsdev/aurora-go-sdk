@@ -97,6 +97,9 @@ type Common struct {
 	Description       string  `json:"description,omitempty"`
 	DeviceFingerprint string  `json:"device_fingerprint,omitempty"`
 	DeviceID          string  `json:"device_id,omitempty"`
+	FirstName         string  `json:"first_name,omitempty" example:"John"`
+	LastName          string  `json:"last_name,omitempty" example:"Doe"`
+	IdentityNumber    string  `json:"identity_number,omitempty" example:"123456789"`
 	Email             string  `json:"email,omitempty"`
 	IPAddress         string  `json:"ip_address,omitempty"`
 	LastLoginIP       string  `json:"last_login_ip,omitempty"`
