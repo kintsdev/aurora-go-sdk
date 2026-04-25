@@ -40,9 +40,9 @@ var validTransactionTypes = map[string]bool{
 
 // ProcessRequest represents a rule processing request.
 type ProcessRequest struct {
-	RuleID        string       `json:"rule_id,omitempty"`
-	RulesetID     string       `json:"ruleset_id,omitempty"`
-	Transaction   *Transaction `json:"transaction,omitempty"`
+	RuleID      string       `json:"rule_id,omitempty"`
+	RulesetID   string       `json:"ruleset_id,omitempty"`
+	Transaction *Transaction `json:"transaction,omitempty"`
 }
 
 // Transaction contains all the data fields that can be evaluated by rules.
@@ -104,6 +104,7 @@ type Common struct {
 	Latitude          string  `json:"latitude,omitempty"`
 	Longitude         string  `json:"longitude,omitempty"`
 	MerchantID        string  `json:"merchant_id,omitempty"`
+	MerchantName      string  `json:"merchant_name,omitempty"`
 	PaymentID         string  `json:"payment_id,omitempty"`
 	Phone             string  `json:"phone,omitempty"`
 	ReferenceID       string  `json:"reference_id,omitempty"`
