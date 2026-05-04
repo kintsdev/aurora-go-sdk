@@ -251,6 +251,7 @@ type Withdrawal struct {
 
 // ProcessResponse represents the result of rule processing.
 type ProcessResponse struct {
+	TransactionID  string        `json:"transaction_id,omitempty"`
 	Allow          bool          `json:"allow"`
 	AllowMessage   string        `json:"allow_message,omitempty"`
 	Error          bool          `json:"error"`
