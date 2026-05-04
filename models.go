@@ -42,6 +42,7 @@ var validTransactionTypes = map[string]bool{
 type ProcessRequest struct {
 	RuleID      string       `json:"rule_id,omitempty"`
 	RulesetID   string       `json:"ruleset_id,omitempty"`
+	TransactionID string       `json:"transaction_id,omitempty"`
 	Transaction *Transaction `json:"transaction,omitempty"`
 }
 

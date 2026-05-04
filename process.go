@@ -12,7 +12,7 @@ type ProcessService struct {
 
 // Execute processes a transaction against a rule or ruleset and returns the result.
 func (s *ProcessService) Execute(ctx context.Context, req *ProcessRequest) (*ProcessResponse, error) {
-	if req.Transaction == nil {
+	if req.TransactionID == "" && req.Transaction == nil {
 		return nil, &ValidationError{Field: "transaction", Message: "transaction is required"}
 	}
 	if !validTransactionTypes[req.Transaction.Type] {
