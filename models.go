@@ -40,10 +40,10 @@ var validTransactionTypes = map[string]bool{
 
 // ProcessRequest represents a rule processing request.
 type ProcessRequest struct {
-	RuleID      string       `json:"rule_id,omitempty"`
-	RulesetID   string       `json:"ruleset_id,omitempty"`
+	RuleID        string       `json:"rule_id,omitempty"`
+	RulesetID     string       `json:"ruleset_id,omitempty"`
 	TransactionID string       `json:"transaction_id,omitempty"`
-	Transaction *Transaction `json:"transaction,omitempty"`
+	Transaction   *Transaction `json:"transaction,omitempty"`
 }
 
 // Transaction contains all the data fields that can be evaluated by rules.
@@ -89,6 +89,7 @@ type Transaction struct {
 // Common holds core transaction and user identification fields.
 type Common struct {
 	Amount            float64 `json:"amount,omitempty"`
+	Balance           float64 `json:"balance,omitempty"`
 	BrowserAgent      string  `json:"browser_agent,omitempty"`
 	Category          string  `json:"category,omitempty"`
 	ConnectionType    string  `json:"connection_type,omitempty"`
