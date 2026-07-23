@@ -66,8 +66,11 @@ type Transaction struct {
 
 	// Top-level scalar fields
 	AccountAgeDays          string `json:"account_age_days,omitempty"`
+	CustomerAgeYears        string `json:"customer_age_years,omitempty"`
 	DeclinedCount           string `json:"declined_count,omitempty"`
 	IncomeMultiplier        string `json:"income_multiplier,omitempty"`
+	IPCity                  string `json:"ip_city,omitempty"`
+	IPCountry               string `json:"ip_country,omitempty"`
 	IsFirstTransfer         string `json:"is_first_transfer,omitempty"`
 	IsNewDevice             string `json:"is_new_device,omitempty"`
 	IsNewIP                 string `json:"is_new_ip,omitempty"`
@@ -88,32 +91,37 @@ type Transaction struct {
 
 // Common holds core transaction and user identification fields.
 type Common struct {
-	Amount            float64 `json:"amount,omitempty"`
-	Balance           float64 `json:"balance,omitempty"`
-	BrowserAgent      string  `json:"browser_agent,omitempty"`
-	Category          string  `json:"category,omitempty"`
-	ConnectionType    string  `json:"connection_type,omitempty"`
-	Country           string  `json:"country,omitempty"`
-	Currency          string  `json:"currency,omitempty"`
-	Date              string  `json:"date,omitempty"`
-	Description       string  `json:"description,omitempty"`
-	DeviceFingerprint string  `json:"device_fingerprint,omitempty"`
-	DeviceID          string  `json:"device_id,omitempty"`
-	FirstName         string  `json:"first_name,omitempty" example:"John"`
-	LastName          string  `json:"last_name,omitempty" example:"Doe"`
-	IdentityNumber    string  `json:"identity_number,omitempty" example:"123456789"`
-	Email             string  `json:"email,omitempty"`
-	IPAddress         string  `json:"ip_address,omitempty"`
-	LastLoginIP       string  `json:"last_login_ip,omitempty"`
-	LastLoginTime     string  `json:"last_login_time,omitempty"`
-	Latitude          string  `json:"latitude,omitempty"`
-	Longitude         string  `json:"longitude,omitempty"`
-	MerchantID        string  `json:"merchant_id,omitempty"`
-	MerchantName      string  `json:"merchant_name,omitempty"`
-	PaymentID         string  `json:"payment_id,omitempty"`
-	Phone             string  `json:"phone,omitempty"`
-	ReferenceID       string  `json:"reference_id,omitempty"`
-	UserID            string  `json:"user_id,omitempty"`
+	Amount             float64 `json:"amount,omitempty"`
+	Balance            float64 `json:"balance,omitempty"`
+	BrowserAgent       string  `json:"browser_agent,omitempty"`
+	Category           string  `json:"category,omitempty"`
+	ConnectionType     string  `json:"connection_type,omitempty"`
+	Country            string  `json:"country,omitempty"`
+	Currency           string  `json:"currency,omitempty"`
+	Date               string  `json:"date,omitempty"`
+	Description        string  `json:"description,omitempty"`
+	DeviceFingerprint  string  `json:"device_fingerprint,omitempty"`
+	DeviceID           string  `json:"device_id,omitempty"`
+	FirstName          string  `json:"first_name,omitempty" example:"John"`
+	LastName           string  `json:"last_name,omitempty" example:"Doe"`
+	IdentityNumber     string  `json:"identity_number,omitempty" example:"123456789"`
+	Email              string  `json:"email,omitempty"`
+	IPAddress          string  `json:"ip_address,omitempty"`
+	LastLoginIP        string  `json:"last_login_ip,omitempty"`
+	LastLoginTime      string  `json:"last_login_time,omitempty"`
+	Latitude           string  `json:"latitude,omitempty"`
+	LocationCity       string  `json:"location_city,omitempty"`
+	LocationCountry    string  `json:"location_country,omitempty"`
+	LocationRegion     string  `json:"location_region,omitempty"`
+	LocationRegionCode string  `json:"location_region_code,omitempty"`
+	LocationSource     string  `json:"location_source,omitempty"`
+	Longitude          string  `json:"longitude,omitempty"`
+	MerchantID         string  `json:"merchant_id,omitempty"`
+	MerchantName       string  `json:"merchant_name,omitempty"`
+	PaymentID          string  `json:"payment_id,omitempty"`
+	Phone              string  `json:"phone,omitempty"`
+	ReferenceID        string  `json:"reference_id,omitempty"`
+	UserID             string  `json:"user_id,omitempty"`
 }
 
 // Card holds payment card details.
