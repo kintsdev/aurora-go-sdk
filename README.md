@@ -110,6 +110,7 @@ resp, err := client.Process.Execute(ctx, &aurora.ProcessRequest{
         Type:            "card",
         TransactionType: "purchase",
         AccountAgeDays:  "180",
+        CustomerAgeYears: "29",
         IsNewDevice:     "true",
         IsNewIP:         "false",
         IsUnusualLocation: "true",
@@ -175,8 +176,11 @@ The `Transaction` struct uses nested sub-structs to organize fields by category.
 | `Type` | `type` | Transaction type (e.g. `card`) |
 | `TransactionType` | `transaction_type` | Transaction action (e.g. `purchase`) |
 | `AccountAgeDays` | `account_age_days` | Account age in days |
+| `CustomerAgeYears` | `customer_age_years` | Customer age in completed years, calculated from date of birth |
 | `DeclinedCount` | `declined_count` | Number of declined transactions |
 | `IncomeMultiplier` | `income_multiplier` | Ratio of amount to registered income |
+| `IPCountry` | `ip_country` | ISO country code resolved from the transaction IP |
+| `IPCity` | `ip_city` | City resolved from the transaction IP |
 | `IsFirstTransfer` | `is_first_transfer` | Whether this is the first transfer |
 | `IsNewDevice` | `is_new_device` | Whether a new device is used |
 | `IsNewIP` | `is_new_ip` | Whether a new IP is used |
@@ -196,7 +200,7 @@ The `Transaction` struct uses nested sub-structs to organize fields by category.
 
 | Sub-Struct | JSON Key | Fields |
 |---|---|---|
-| `Common` | `common` | `Amount`, `BrowserAgent`, `Category`, `ConnectionType`, `Country`, `Currency`, `Date`, `Description`, `DeviceFingerprint`, `DeviceID`, `Email`, `IPAddress`, `LastLoginIP`, `LastLoginTime`, `Latitude`, `Longitude`, `MerchantID`, `PaymentID`, `Phone`, `ReferenceID`, `UserID` |
+| `Common` | `common` | `Amount`, `Balance`, `BrowserAgent`, `Category`, `ConnectionType`, `Country`, `Currency`, `Date`, `Description`, `DeviceFingerprint`, `DeviceID`, `Email`, `FirstName`, `IdentityNumber`, `IPAddress`, `LastLoginIP`, `LastLoginTime`, `LastName`, `Latitude`, `LocationCity`, `LocationCountry`, `LocationRegion`, `LocationRegionCode`, `LocationSource`, `Longitude`, `MerchantID`, `MerchantName`, `PaymentID`, `Phone`, `ReferenceID`, `UserID` |
 | `Card` | `card` | `BinNumber`, `Holder`, `Issuer`, `LastFour`, `MCC`, `Network`, `Token`, `Type` |
 | `Transfer` | `transfer` | `ExchangeRate`, `PaymentMethod`, `ReceiverAddress`, `ReceiverCountry`, `ReceiverIBAN`, `ReceiverIdentityPassport`, `ReceiverName`, `ReceiverSurname`, `ReceiverWalletID`, `Relationship`, `SenderAddress`, `SenderCountry`, `SenderIBAN`, `SenderIdentityPassport`, `SenderName`, `SenderSurname`, `SenderWalletID`, `SourceOfFunds`, `TargetCurrency`, `TransferPurpose`, `TransferType` |
 | `AccountChange` | `account_change` | `ChangeType`, `PreviousValueHash`, `TimeSinceLastChange`, `VerificationMethod` |
