@@ -17,6 +17,26 @@ func TestTransactionCustomerAgeYearsJSON(t *testing.T) {
 	}
 }
 
+func TestTransactionCustomerProfileRiskFieldsJSON(t *testing.T) {
+	payload, err := json.Marshal(Transaction{
+		Type:                    TransactionTypeTransfer,
+		CustomerAccountType:     CustomerAccountTypeIndividual,
+		FirstTransactionAgeDays: "30",
+	})
+	if err != nil {
+		t.Fatalf("marshal transaction: %v", err)
+	}
+
+	for _, expected := range []string{
+		`"customer_account_type":"individual"`,
+		`"first_transaction_age_days":"30"`,
+	} {
+		if !strings.Contains(string(payload), expected) {
+			t.Errorf("expected %s in payload, got %s", expected, payload)
+		}
+	}
+}
+
 func TestTransactionClientIPLocationJSON(t *testing.T) {
 	payload, err := json.Marshal(Transaction{
 		Type:      TransactionTypeTransfer,

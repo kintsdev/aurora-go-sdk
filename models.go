@@ -20,6 +20,12 @@ const (
 	TransactionTypeInvoice        = "invoice"
 )
 
+// Customer account type constants.
+const (
+	CustomerAccountTypeIndividual   = "individual"
+	CustomerAccountTypeOrganization = "organization"
+)
+
 // validTransactionTypes is the set of accepted transaction types.
 var validTransactionTypes = map[string]bool{
 	TransactionTypeCard:           true,
@@ -66,8 +72,10 @@ type Transaction struct {
 
 	// Top-level scalar fields
 	AccountAgeDays          string `json:"account_age_days,omitempty"`
+	CustomerAccountType     string `json:"customer_account_type,omitempty"`
 	CustomerAgeYears        string `json:"customer_age_years,omitempty"`
 	DeclinedCount           string `json:"declined_count,omitempty"`
+	FirstTransactionAgeDays string `json:"first_transaction_age_days,omitempty"`
 	IncomeMultiplier        string `json:"income_multiplier,omitempty"`
 	IPCity                  string `json:"ip_city,omitempty"`
 	IPCountry               string `json:"ip_country,omitempty"`
