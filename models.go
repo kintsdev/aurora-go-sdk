@@ -20,6 +20,19 @@ const (
 	TransactionTypeInvoice        = "invoice"
 )
 
+// Transfer subtype constants for Transfer.TransferType.
+const (
+	TransferTypeWalletToWallet = "wallet_to_wallet"
+	TransferTypeWalletToIBAN   = "wallet_to_iban"
+	TransferTypeIBANToWallet   = "iban_to_wallet"
+	TransferTypeRemittance     = "remittance"
+)
+
+// Withdrawal method constants for Withdrawal.WithdrawalMethod.
+const (
+	WithdrawalMethodMoneyTransferCollection = "money_transfer_collection"
+)
+
 // Customer account type constants.
 const (
 	CustomerAccountTypeIndividual   = "individual"
@@ -46,10 +59,13 @@ var validTransactionTypes = map[string]bool{
 
 // ProcessRequest represents a rule processing request.
 type ProcessRequest struct {
-	RuleID        string       `json:"rule_id,omitempty"`
-	RulesetID     string       `json:"ruleset_id,omitempty"`
-	TransactionID string       `json:"transaction_id,omitempty"`
-	Transaction   *Transaction `json:"transaction,omitempty"`
+	RuleID        string `json:"rule_id,omitempty"`
+	RulesetID     string `json:"ruleset_id,omitempty"`
+	TransactionID string `json:"transaction_id,omitempty"`
+	// LifecycleRootTransactionID links a remittance collection to the remittance
+	// send that opened its lifecycle; only valid on a remittance collection request.
+	LifecycleRootTransactionID string       `json:"lifecycle_root_transaction_id,omitempty"`
+	Transaction                *Transaction `json:"transaction,omitempty"`
 }
 
 // Transaction contains all the data fields that can be evaluated by rules.
